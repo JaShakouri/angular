@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'chat-group';
+  title = '';
+  name = '';
+  isEnable: Boolean = false;
+
+  public onInputChanged(e: Event) {
+    this.title = (<HTMLInputElement> e.target).value;
+  }
+
 }

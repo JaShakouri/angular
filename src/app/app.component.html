@@ -1,3 +1,10 @@
-<app-users></app-users>
+<p>{{title}}</p>
+<p>{{name}}</p>
+<!-- <button [disabled]="isEnable">Add User</button> -->
+<button>Add User</button>
 
-<app-user></app-user>
+<!-- <input type="text" (input)="onInputChanged($event)"/> -->
+<br/>
+<input type="text" [(ngModel)]="title"/>
+<br/>
+<input type="text" [(ngModel)]="name"/>
