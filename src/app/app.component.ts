@@ -6,12 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = '';
-  name = '';
-  isEnable: Boolean = false;
+  username = '';
+  password = '';
+  rePassword = '';
+  isMatchPassword = false;
 
-  public onInputChanged(e: Event) {
-    this.title = (<HTMLInputElement> e.target).value;
+  public onUserNameInputChanged(e: Event) {
+    this.username = (<HTMLInputElement> e.target).value;
+  }
+
+  public onPasswordInputChanged(e: Event) {
+    this.password = (<HTMLInputElement> e.target).value;
+  }
+
+  public onRePasswordInputChanged(e: Event) {
+    this.rePassword = (<HTMLInputElement> e.target).value;
+    this.isMatchPassword = this.rePassword !== this.password ? false : true;
   }
 
 }

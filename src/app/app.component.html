@@ -1,10 +1,29 @@
-<p>{{title}}</p>
+<!-- <p >{{title}}</p>
 <p>{{name}}</p>
-<!-- <button [disabled]="isEnable">Add User</button> -->
+<button [disabled]="isEnable">Add User</button>
 <button>Add User</button>
-
-<!-- <input type="text" (input)="onInputChanged($event)"/> -->
+<input type="text" (input)="onInputChanged($event)"/>
 <br/>
 <input type="text" [(ngModel)]="title"/>
 <br/>
 <input type="text" [(ngModel)]="name"/>
+<br/>
+<button (click)="onClickAddUser()">Add User</button> -->
+
+<h1 [hidden]="username">Wellcome To Application</h1>
+<h1 [hidden]="!username">Wellcome {{username}}</h1>
+
+<br />
+<label>UserName: </label>
+<input type="text" (input)="onUserNameInputChanged($event)" />
+<br />
+<label>Password: </label>
+<input type="text" (input)="onPasswordInputChanged($event)" />
+<br />
+<label>RePassword: </label>
+<input type="text" (input)="onRePasswordInputChanged($event)" />
+<br />
+<br />
+<label class="{{isMatchPassword ? 'color-green' : 'color-red'}}">
+    {{isMatchPassword ? 'Pasword is match' : 'Pasword is not match'}}
+</label>
