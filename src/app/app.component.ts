@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {User} from "./app-interface";
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,27 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
 
-  ratings: number[] = [3.2, 3.5, 4.0, 4.75, 4.90, 5.0];
+  users: User[] = [
+    {
+      name: "Javad",
+      family: "Shakouri",
+      address: "Tehran - area 11",
+    }
+  ];
 
-  public onClickStar(n: number) {
-    console.log("number: " + n);
+  public onAddUser(u: User) {
+    this.users.push(u);
   }
+
+  public onDelete(u: User) {
+    const index: number = this.users.indexOf(u);
+    if (index !== -1) {
+      this.users.splice(index, 1);
+    }
+  }
+
+  public onEdit(u: User) {
+    this.users.pop();
+  }
+
 }
