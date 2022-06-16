@@ -1,26 +1,4 @@
-<!--ngIf Sample-->
-<!--<p *ngIf="isCurrent; else elseCondition">ngIf true</p>-->
-<!--<ng-template #elseCondition><p>Else condition</p></ng-template>-->
-<!--<button (click)="onClick($event)" class="btn btn-primary">Click me</button>-->
-<!--<p *ngFor="let user of users; let i=index">{{i + ": " + user}}</p>-->
-
-
-<!--ngFor Sample-->
-<!--<button (click)="onAddUser($event)" class="btn btn-primary">Add User</button>-->
-<!--<button (click)="onRemoveUser($event)" class="btn btn-primary">Remove User</button>-->
-<!--<br/>-->
-
-<!--Track by is very important please use this-->
-<!--<p-->
-<!--  *ngFor="let user of usersObj;let i=index; trackBy: trackByFunction">{{user.id + ": " + user.name + " " + user.family}}</p>-->
-
-<button (click)="SwitchCaseA($event)" class="btn btn-primary">A</button>
-<button (click)="SwitchCaseB($event)" class="btn btn-primary">B</button>
-<button (click)="SwitchCaseC($event)" class="btn btn-primary">C</button>
-<br/>
-
-<div [ngSwitch]="switchProperty">
-  <app-switch-case1 *ngSwitchCase="'a'"></app-switch-case1>
-  <app-switch-case2 *ngSwitchCase="'b'"></app-switch-case2>
-  <app-switch-case3 *ngSwitchCase="'c'"></app-switch-case3>
-</div>
+<app-star *ngFor="let rating of ratings"
+          [starRating]=rating
+          (starEventEmitter)="onClickStar($event)">
+</app-star>
