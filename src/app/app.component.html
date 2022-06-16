@@ -1,13 +1,26 @@
-<button class="btn btn-primary" (click)="onClick($event)">Change Style</button>
+<!--ngIf Sample-->
+<!--<p *ngIf="isCurrent; else elseCondition">ngIf true</p>-->
+<!--<ng-template #elseCondition><p>Else condition</p></ng-template>-->
+<!--<button (click)="onClick($event)" class="btn btn-primary">Click me</button>-->
+<!--<p *ngFor="let user of users; let i=index">{{i + ": " + user}}</p>-->
 
-<!--<p [style]="isCurrent ? 'font-size: 4rem' : 'font-size: 2rem'">Hello World</p>-->
 
-<!--<p [style.font-size]="isCurrent ? '6rem' : '4rem'">Hello World</p>-->
+<!--ngFor Sample-->
+<!--<button (click)="onAddUser($event)" class="btn btn-primary">Add User</button>-->
+<!--<button (click)="onRemoveUser($event)" class="btn btn-primary">Remove User</button>-->
+<!--<br/>-->
 
-<!--<p [style.font-size.rem]="isCurrent ? '8' : '6'">Hello World</p>-->
+<!--Track by is very important please use this-->
+<!--<p-->
+<!--  *ngFor="let user of usersObj;let i=index; trackBy: trackByFunction">{{user.id + ": " + user.name + " " + user.family}}</p>-->
 
-<!--<p [style]="styles">Hello World</p>-->
+<button (click)="SwitchCaseA($event)" class="btn btn-primary">A</button>
+<button (click)="SwitchCaseB($event)" class="btn btn-primary">B</button>
+<button (click)="SwitchCaseC($event)" class="btn btn-primary">C</button>
+<br/>
 
-<!--<p [class]="isCurrent ? 'big-font-size':'small-font-size'">Hello World</p>-->
-
-<p [class]="classes">Hello World</p>
+<div [ngSwitch]="switchProperty">
+  <app-switch-case1 *ngSwitchCase="'a'"></app-switch-case1>
+  <app-switch-case2 *ngSwitchCase="'b'"></app-switch-case2>
+  <app-switch-case3 *ngSwitchCase="'c'"></app-switch-case3>
+</div>
