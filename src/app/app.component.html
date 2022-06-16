@@ -1,4 +1,11 @@
 <div class="container-fluid">
-  <app-add-user (addUser)="onAddUser($event)"></app-add-user>
-  <app-user-list [users]="users" (onDelete)="onDelete($event)" (onEdit)="onDelete($event)"></app-user-list>
+
+  <app-add-user (addUser)="onAddUser($event)"
+                (editUser)="onEditUser($event)"
+                [giveEditUser]="editUser"></app-add-user>
+
+  <app-user-list [users]="users"
+                 (onDelete)="onDelete($event)"
+                 (onEdit)="onEdit($event)"></app-user-list>
+
 </div>

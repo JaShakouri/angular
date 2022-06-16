@@ -1,5 +1,6 @@
 export interface User {
-  name: String;
-  family: String;
-  address: String;
+  id: number;
+  name: string;
+  family: string;
+  address: string;
 }

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter} from '@angular/core';
 import {User} from "./app-interface";
 
 @Component({
@@ -8,16 +8,26 @@ import {User} from "./app-interface";
 })
 export class AppComponent {
 
-  users: User[] = [
-    {
-      name: "Javad",
-      family: "Shakouri",
-      address: "Tehran - area 11",
-    }
-  ];
+  editUser = new EventEmitter<User>();
+
+  users: User[] = [];
 
   public onAddUser(u: User) {
     this.users.push(u);
+  }
+
+  public onEditUser(u: User) {
+    let index: number = -1;
+
+    this.users.forEach(user => {
+      if (user.id == u.id)
+        index = this.users.indexOf(user);
+    });
+
+    console.log("editing user " + index);
+    if (index !== -1) {
+      this.users[index] = u;
+    }
   }
 
   public onDelete(u: User) {
@@ -28,7 +38,7 @@ export class AppComponent {
   }
 
   public onEdit(u: User) {
-    this.users.pop();
+    this.editUser.emit(u);
   }
 
 }
