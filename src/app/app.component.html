@@ -1,25 +1,22 @@
-<app-user [user]="user"></app-user>
+<!--<p [Highlight]="color">Hello world</p>-->
 
-<select (change)="onChangeSelect($event)">
-  <option *ngFor="let user of users;">{{user.name}} {{user.family}}</option>
-</select>
+<!--<input type="text" appColorful style="width: 50%; border-width: 0.2rem">-->
 
+<div *Carousel="let img of images autoPlay true interval 3000; let ctrl = controller;">
 
-<!--<div *ngFor="let user of users">-->
+  <img [src]="img" width="200" height="200" alt="error loading {{img}}"/>
 
-<!--  <div *ngIf="user.age > 30">-->
-<!--    <option [ngValue]="user">{{user.name}} {{user.family}}</option>-->
-<!--  </div>-->
+  <br/>
 
-<!--</div>-->
+  <button (click)="ctrl.next()">Next</button>
+  <button (click)="ctrl.previous()">Prev</button>
 
+</div>
 
-<select (change)="onChangeSelect($event)">
-  <ng-container *ngFor="let u of users;">
+<!--<ng-template Carousel>
 
-    <ng-container *ngIf="u.age > 30">
-      <option [ngValue]="u">{{u.name}} {{u.family}}</option>
-    </ng-container>
+  <div>
 
-  </ng-container>
-</select>
+  </div>
+
+</ng-template>-->

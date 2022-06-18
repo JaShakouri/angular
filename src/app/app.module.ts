@@ -4,12 +4,16 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import { UserComponent } from './user/user.component';
+import { ColorfulDirective } from './colorful.directive';
+import { HighlightDirective } from './highlight.directive';
+import { CarouselDirective } from './carousel.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    ColorfulDirective,
+    HighlightDirective,
+    CarouselDirective
   ],
   imports: [
     BrowserModule,

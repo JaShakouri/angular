@@ -1,7 +1,6 @@
 import {
   Component
 } from '@angular/core';
-import {User} from "../data/model/User";
 
 @Component({
   selector: 'app-root',
@@ -10,43 +9,17 @@ import {User} from "../data/model/User";
 })
 export class AppComponent {
 
-  user: User = {
-    name: "Javad",
-    family: "Shakouri",
-    address: "Tehran area 11",
-    age: 28
-  }
+  color: string = 'red';
 
-  users: User[] = [
-
-    {
-      name: "Javad",
-      family: "Shakouri",
-      address: "Tehran area 11",
-      age: 28
-    },
-
-    {
-      name: "Mehran",
-      family: "Shakouri",
-      address: "Mazandaran ramsar",
-      age: 24
-    },
-
-    {
-      name: "Reza",
-      family: "Shakouri",
-      address: "Gilan shaft shalma",
-      age: 54
-    }
-
+  images: string[] = [
+    '/domain/assets/01.svg',
+    '/domain/assets/02.svg',
+    '/domain/assets/03.svg',
+    '/domain/assets/04.svg'
   ];
 
   constructor() {
 
   }
 
-  onChangeSelect(user: Event){
-    console.log(user);
-  }
 }
