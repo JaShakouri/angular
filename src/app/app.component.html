@@ -1,11 +1,8 @@
-<p #par>Form app component</p>
-<label>Test for app</label>
-<input type="text" #inputName>
-<button (click)="onClick(inputName.value)">Click me!</button>
-<br/>
-<br/>
 
-<app-inc></app-inc>
-<app-inc></app-inc>
-<app-inc></app-inc>
+<input [(ngModel)]="varInput" type="text" class="text-body">
 
+<app-user [varInput]="varInput">
+  <p #par class="success">Javad Shakouri first angular application</p>
+</app-user>
+
+<button (click)="changeContent()">From Child change Content</button>

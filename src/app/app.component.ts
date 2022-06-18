@@ -1,14 +1,9 @@
 import {
-  AfterViewInit,
   Component,
   ElementRef,
-  OnInit, QueryList,
-  Renderer2,
   ViewChild,
-  ViewChildren,
   ViewEncapsulation
 } from '@angular/core';
-import {IncComponent} from "./inc/inc.component";
 
 @Component({
   selector: 'app-root',
@@ -16,37 +11,17 @@ import {IncComponent} from "./inc/inc.component";
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent {
 
-  @ViewChild("par", {static: true, read: ElementRef}) par!: ElementRef;
-  @ViewChild(IncComponent, {static: true, read: IncComponent}) incComp!: IncComponent;
-  @ViewChildren(IncComponent ,{read: IncComponent}) incComps!: QueryList<IncComponent>;
+  // @ViewChild('varInput', {static: true}) varInput!: ElementRef;
 
-  constructor(private render: Renderer2) {
+  varInput: any;
 
-  }
-
-  ngOnInit(): void {
-
-    this.incComp.increment();
-    this.incComp.increment();
-
-    this.par.nativeElement.textContent = "Hello World";
-    this.render.setStyle(this.par.nativeElement, 'color', 'purple')
-  }
-
-  ngAfterViewInit(): void {
-
-    this.incComps.forEach(inc => {
-      inc.increment();
-      inc.increment();
-      inc.increment();
-    });
+  constructor() {
 
   }
 
-  public onClick(e: String) {
-    alert(e);
+  changeContent() {
+    this.varInput.nativeElement.textContent = "text test";
   }
-
 }
