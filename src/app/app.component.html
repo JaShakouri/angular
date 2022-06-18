@@ -1,11 +1,11 @@
-<div class="container-fluid">
+<p #par>Form app component</p>
+<label>Test for app</label>
+<input type="text" #inputName>
+<button (click)="onClick(inputName.value)">Click me!</button>
+<br/>
+<br/>
 
-  <app-add-user (addUser)="onAddUser($event)"
-                (editUser)="onEditUser($event)"
-                [giveEditUser]="editUser"></app-add-user>
+<app-inc></app-inc>
+<app-inc></app-inc>
+<app-inc></app-inc>
 
-  <app-user-list [users]="users"
-                 (onDelete)="onDelete($event)"
-                 (onEdit)="onEdit($event)"></app-user-list>
-
-</div>

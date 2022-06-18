@@ -1,44 +1,52 @@
-import {Component, EventEmitter} from '@angular/core';
-import {User} from "./app-interface";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit, QueryList,
+  Renderer2,
+  ViewChild,
+  ViewChildren,
+  ViewEncapsulation
+} from '@angular/core';
+import {IncComponent} from "./inc/inc.component";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
+export class AppComponent implements OnInit, AfterViewInit {
 
-  editUser = new EventEmitter<User>();
+  @ViewChild("par", {static: true, read: ElementRef}) par!: ElementRef;
+  @ViewChild(IncComponent, {static: true, read: IncComponent}) incComp!: IncComponent;
+  @ViewChildren(IncComponent ,{read: IncComponent}) incComps!: QueryList<IncComponent>;
 
-  users: User[] = [];
+  constructor(private render: Renderer2) {
 
-  public onAddUser(u: User) {
-    this.users.push(u);
   }
 
-  public onEditUser(u: User) {
-    let index: number = -1;
+  ngOnInit(): void {
 
-    this.users.forEach(user => {
-      if (user.id == u.id)
-        index = this.users.indexOf(user);
+    this.incComp.increment();
+    this.incComp.increment();
+
+    this.par.nativeElement.textContent = "Hello World";
+    this.render.setStyle(this.par.nativeElement, 'color', 'purple')
+  }
+
+  ngAfterViewInit(): void {
+
+    this.incComps.forEach(inc => {
+      inc.increment();
+      inc.increment();
+      inc.increment();
     });
 
-    console.log("editing user " + index);
-    if (index !== -1) {
-      this.users[index] = u;
-    }
   }
 
-  public onDelete(u: User) {
-    const index: number = this.users.indexOf(u);
-    if (index !== -1) {
-      this.users.splice(index, 1);
-    }
-  }
-
-  public onEdit(u: User) {
-    this.editUser.emit(u);
+  public onClick(e: String) {
+    alert(e);
   }
 
 }
