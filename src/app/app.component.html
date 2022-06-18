@@ -1,8 +1,25 @@
+<app-user [user]="user"></app-user>
 
-<input [(ngModel)]="varInput" type="text" class="text-body">
+<select (change)="onChangeSelect($event)">
+  <option *ngFor="let user of users;">{{user.name}} {{user.family}}</option>
+</select>
 
-<app-user [varInput]="varInput">
-  <p #par class="success">Javad Shakouri first angular application</p>
-</app-user>
 
-<button (click)="changeContent()">From Child change Content</button>
+<!--<div *ngFor="let user of users">-->
+
+<!--  <div *ngIf="user.age > 30">-->
+<!--    <option [ngValue]="user">{{user.name}} {{user.family}}</option>-->
+<!--  </div>-->
+
+<!--</div>-->
+
+
+<select (change)="onChangeSelect($event)">
+  <ng-container *ngFor="let u of users;">
+
+    <ng-container *ngIf="u.age > 30">
+      <option [ngValue]="u">{{u.name}} {{u.family}}</option>
+    </ng-container>
+
+  </ng-container>
+</select>

@@ -1,5 +1,6 @@
 export class User {
-  name: String = '';
-  family: String = '';
-  address: String = '';
+  name!: string;
+  family!: string;
+  address!: string;
+  age!: number;
 }
