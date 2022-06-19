@@ -1,6 +1,4 @@
 export class User {
+  id!: number;
   name!: string;
-  family!: string;
-  address!: string;
-  age!: number;
 }

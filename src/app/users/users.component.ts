@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {LoggingService} from "../../data/services/logging.service";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-users',
@@ -8,14 +7,9 @@ import {LoggingService} from "../../data/services/logging.service";
 })
 export class UsersComponent implements OnInit {
 
-  constructor(private loggingService: LoggingService) {
-  }
+  constructor() { }
 
   ngOnInit(): void {
-  }
-
-  public log() {
-    this.loggingService.log("Users component log")
   }
 
 }

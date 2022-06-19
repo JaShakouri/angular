@@ -1,26 +1,21 @@
 import {Component, OnInit} from '@angular/core';
-import {LoggingService} from "../../data/services/logging.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  // providers: [LoggingService]
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private loggingService: LoggingService) {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
-  public log() {
-    this.loggingService.log("Home component log")
-  }
-
-  public onChange(e: Event) {
-    this.loggingService.title = (e.target as HTMLInputElement).value;
+  public onUSerRedirect() {
+    this.router.navigate(['/users']);
   }
 
 }

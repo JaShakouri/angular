@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {LoggingService} from "../../data/services/logging.service";
+import {Component, OnInit} from '@angular/core';
+import {User} from "../../data/model/User";
+import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
   selector: 'app-user',
@@ -8,13 +9,45 @@ import {LoggingService} from "../../data/services/logging.service";
 })
 export class UserComponent implements OnInit {
 
-  constructor(private loggingService: LoggingService) { }
+  selectedId = 0;
+  selectedUser: User | undefined;
+  userNotFound = false;
 
-  ngOnInit(): void {
+  user: User[] = [
+    {
+      id: 1,
+      name: "Javad Shakouri"
+    },
+
+    {
+      id: 2,
+      name: "Mehran Shakouri"
+    },
+
+    {
+      id: 3,
+      name: "Reza Shakouri"
+    },
+
+  ];
+
+  constructor(private route: ActivatedRoute) {
   }
 
-  public log(){
-    this.loggingService.log("User component log")
+  ngOnInit(): void {
+    this.onCheckRouteParams();
+  }
+
+  ngOnChanges() {
+    console.log("change");
+  }
+
+  public onCheckRouteParams() {
+    this.route.params.subscribe((param: Params) => {
+      this.selectedId = +param['id'];
+      this.selectedUser = this.user.find(user => user.id === this.selectedId);
+      this.userNotFound = !this.selectedUser;
+    });
   }
 
 }
