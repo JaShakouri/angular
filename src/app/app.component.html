@@ -1,22 +1,8 @@
-<!--<p [Highlight]="color">Hello world</p>-->
+<nav class="nav nav-pills nav-fill">
 
-<!--<input type="text" appColorful style="width: 50%; border-width: 0.2rem">-->
+  <a class="nav-item nav-link" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+  <a class="nav-item nav-link" [routerLink]="['/admin']" routerLinkActive="active">Admin</a>
 
-<div *Carousel="let img of images autoPlay true interval 3000; let ctrl = controller;">
+</nav>
 
-  <img [src]="img" width="200" height="200" alt="error loading {{img}}"/>
-
-  <br/>
-
-  <button (click)="ctrl.next()">Next</button>
-  <button (click)="ctrl.previous()">Prev</button>
-
-</div>
-
-<!--<ng-template Carousel>
-
-  <div>
-
-  </div>
-
-</ng-template>-->
+<router-outlet></router-outlet>

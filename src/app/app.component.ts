@@ -1,6 +1,8 @@
 import {
-  Component
+  Component, Inject
 } from '@angular/core';
+import {COMPANY_SERVICE_TOKEN, DEVICE_NAME_TOKEN} from "./app.module";
+import {CompanyService} from "../data/services/company.service";
 
 @Component({
   selector: 'app-root',
@@ -9,17 +11,10 @@ import {
 })
 export class AppComponent {
 
-  color: string = 'red';
-
-  images: string[] = [
-    '/domain/assets/01.svg',
-    '/domain/assets/02.svg',
-    '/domain/assets/03.svg',
-    '/domain/assets/04.svg'
-  ];
-
-  constructor() {
-
+  constructor(
+    @Inject(COMPANY_SERVICE_TOKEN) private companyService: CompanyService,
+    @Inject(DEVICE_NAME_TOKEN) private deviceName: string) {
+    console.log(deviceName);
   }
 
 }
